@@ -13,26 +13,25 @@ namespace NumberGuesser
             while (true)
             {
                 //Set number
-
+                //CReate random number to guess
                 Random random = new Random();
-
                 int number = random.Next(1, 10);
 
-                //Init guess var
+                //Initialize guess var
                 int guess = 0;
 
-                //ASk user for number
+                //Ask user for number
                 while (guess != number)
                 {
                     Console.WriteLine("Guess a number between 1 and 10");
                     string inputNumber = Console.ReadLine();
-
+                    //Check to see if guess is correct
                     if (!int.TryParse(inputNumber, out guess))
                     {
                         printColorMessage(ConsoleColor.Red, "Please enter a valid number");
                         continue;
                     }
-
+                    //Check to see if input is a valid number
                     guess = Int32.Parse(inputNumber);
                     if (guess != number)
                     {
@@ -81,7 +80,7 @@ namespace NumberGuesser
             String inputName = Console.ReadLine();
             Console.WriteLine("Hello {0} lets play!", inputName);
         }
-
+        //Changes color to print messages
         static void printColorMessage(ConsoleColor color, String mes)
         {
             Console.ForegroundColor = color;
